@@ -75,7 +75,7 @@ jobs:
           -DPACKAGE=${{env.PACKAGE}} \
           -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
           -DBUILD_TESTING=${{env.BUILD_TESTING}} \
-          -DPRINT_PRETTY_FUNCTION=${{env.PRINT_PRETTY_FUNCTION}}
+          -DPRINT_PRETTY_FUNCTION=${{env.PRINT_PRETTY_FUNCTION}} \
           -DCMAKE_CXX_FLAGS="${{env.CXX_FLAGS}}"
 
     - name: Build
