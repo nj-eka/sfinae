@@ -94,18 +94,24 @@ jobs:
     # - name: Run app
     #   run: hw4_sfinae
 
-    - name: Doxygen Action
-      uses: mattnotmitt/doxygen-action@v1.1.0
-      with:
-        # Path to Doxyfile
-        doxyfile-path: "./Doxyfile"
-        # Working directory
-        working-directory: "."
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+    # - name: Doxygen Action
+    #   uses: mattnotmitt/doxygen-action@v1.1.0
+    #   with:
+    #     # Path to Doxyfile
+    #     doxyfile-path: "./Doxyfile"
+    #     # Working directory
+    #     working-directory: "."
+    # - name: Deploy
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: ./html
+    - uses: DenverCoder1/doxygen-github-pages-action@v1.3.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./html
+        branch: gh-pages
+        folder: docs/html
+        config_file: Doxyfile    
 
     - name: Generate package
       run: |
