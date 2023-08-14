@@ -68,7 +68,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = /home/jn/codes/cpp/otus23/sfinae/doc
+OUTPUT_DIRECTORY       = docs
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -917,7 +917,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = /home/jn/codes/cpp/otus23/sfinae/src
+INPUT                  = src
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1257,7 +1257,7 @@ IGNORE_PREFIX          =
 
 GENERATE_HTML          = YES
 
-# The HTML_OUTPUT tag is used to specify where the HTML docs will be put. If a
+# The HTML_OUTPUT tag is used to specify where the HTMLwill be put. If a
 # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of
 # it.
 # The default directory is: html.
@@ -1895,7 +1895,7 @@ EXTRA_SEARCH_MAPPINGS  =
 
 GENERATE_LATEX         = YES
 
-# The LATEX_OUTPUT tag is used to specify where the LaTeX docs will be put. If a
+# The LATEX_OUTPUT tag is used to specify where the LaTeXwill be put. If a
 # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of
 # it.
 # The default directory is: latex.
@@ -2081,7 +2081,7 @@ LATEX_EMOJI_DIRECTORY  =
 
 GENERATE_RTF           = NO
 
-# The RTF_OUTPUT tag is used to specify where the RTF docs will be put. If a
+# The RTF_OUTPUT tag is used to specify where the RTFwill be put. If a
 # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of
 # it.
 # The default directory is: rtf.
