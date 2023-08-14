@@ -98,9 +98,9 @@ jobs:
       uses: mattnotmitt/doxygen-action@v1.1.0
       with:
         # Path to Doxyfile
-        doxyfile-path: "${{github.workspace}}/Doxyfile"
+        doxyfile-path: "./Doxyfile"
         # Working directory
-        working-directory: "${{github.workspace}}"
+        working-directory: "."
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
