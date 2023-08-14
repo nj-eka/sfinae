@@ -1,0 +1,25 @@
+\doxysection{concepts\+::tuple\+\_\+like Concept Reference}
+\hypertarget{conceptconcepts_1_1tuple__like}{}\label{conceptconcepts_1_1tuple__like}\index{concepts::tuple\_like@{concepts::tuple\_like}}
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptconcepts_1_1tuple__like}{concepts::tuple\_like}}\ =\ \ !std::is\_reference\_v<T>\ \&\&\ \textcolor{keyword}{requires}(T\ t)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{typename}\ std::tuple\_size<T>::type;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{requires}\ std::derived\_from<std::tuple\_size<T>,\ std::integral\_constant<std::size\_t,\ std::tuple\_size\_v<T>>>;}
+\DoxyCodeLine{\}\ \&\&\ []<std::size\_t...\ N>(std::index\_sequence<N...>)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{conceptconcepts_1_1has__tuple__element}{has\_tuple\_element<T,\ N>}}\ \&\&\ ...);}
+\DoxyCodeLine{\}(std::make\_index\_sequence<std::tuple\_size\_v<T>>())}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{concepts_8hpp_source_l00037}{37}} of file \mbox{\hyperlink{concepts_8hpp_source}{concepts.\+hpp}}.
+

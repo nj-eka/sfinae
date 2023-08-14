@@ -1,0 +1,23 @@
+\doxysection{concepts\+::container\+\_\+like Concept Reference}
+\hypertarget{conceptconcepts_1_1container__like}{}\label{conceptconcepts_1_1container__like}\index{concepts::container\_like@{concepts::container\_like}}
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptconcepts_1_1container__like}{concepts::container\_like}}\ =\ \ !\mbox{\hyperlink{conceptconcepts_1_1string__like}{string\_like<T>}}\ \&\&\ \textcolor{keyword}{requires}(\textcolor{keyword}{const}\ T\ \&container)\ \{}
+\DoxyCodeLine{\ \ *(++container.begin());}
+\DoxyCodeLine{\ \ container.begin()\ ==\ container.end();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{concepts_8hpp_source_l00024}{24}} of file \mbox{\hyperlink{concepts_8hpp_source}{concepts.\+hpp}}.
+

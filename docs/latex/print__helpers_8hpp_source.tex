@@ -1,0 +1,13 @@
+\doxysection{print\+\_\+helpers.\+hpp}
+\hypertarget{print__helpers_8hpp_source}{}\label{print__helpers_8hpp_source}\index{src/utils/print\_helpers.hpp@{src/utils/print\_helpers.hpp}}
+\mbox{\hyperlink{print__helpers_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{print__helpers_8hpp_source_l00001}\mbox{\hyperlink{print__helpers_8hpp_a9739f480990ca670f89755f0cdd694ed}{00001}}\ \textcolor{preprocessor}{\#define\ SHOW(...)\ (std::cout\ <<\ \#\_\_VA\_ARGS\_\_\ <<\ "{}\ //\ "{}},\ \_\_VA\_ARGS\_\_,\ std::cout\ <<\ std::endl)}
+\DoxyCodeLine{\Hypertarget{print__helpers_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{print__helpers_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#ifdef\ PRINT\_PRETTY\_FUNCTION}}
+\DoxyCodeLine{\Hypertarget{print__helpers_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#define\ PPF(out)\ (out\ <<\ "{}\(\backslash\)n\(\backslash\)033[7m/*"{}}\ <<\ \_\_PRETTY\_FUNCTION\_\_\ <<\ "{}\ */\(\backslash\)033[0m\(\backslash\)n"{})}
+\DoxyCodeLine{\Hypertarget{print__helpers_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{print__helpers_8hpp_source_l00006}\mbox{\hyperlink{print__helpers_8hpp_aa7ff2d3fa8cb913704f6d80b78b38f92}{00006}}\ \textcolor{preprocessor}{\#define\ PPF(out)}}
+\DoxyCodeLine{\Hypertarget{print__helpers_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

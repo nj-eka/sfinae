@@ -1,0 +1,231 @@
+\doxysection{sfinae Namespace Reference}
+\hypertarget{namespacesfinae}{}\label{namespacesfinae}\index{sfinae@{sfinae}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesfinae_1_1details}{details}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714}{enable\+\_\+if\+\_\+integral}} = std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+integral\+\_\+v$<$ T $>$, int $>$
+\begin{DoxyCompactList}\small\item\em template alias is used to check if an input variable is an integral type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacesfinae_aedc4aa60f85f0fc4a2d372815e18a268}{enable\+\_\+if\+\_\+string}} = std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{details\+::is\+\_\+string}}$<$ T $>$, int $>$
+\begin{DoxyCompactList}\small\item\em template alias is used to check if an input variable is a string-\/like type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacesfinae_acf50b3be80d7ffd26721950e381da14e}{enable\+\_\+if\+\_\+container}} = std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{details\+::is\+\_\+string}}$<$ T $>$ \&\&\mbox{\hyperlink{structsfinae_1_1details_1_1is__container}{details\+::is\+\_\+container}}$<$ T $>$\+::value, int $>$
+\begin{DoxyCompactList}\small\item\em template alias is used to check if an input variable is a container but not string-\/like type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacesfinae_ae4658c369e0b7039d6eebaa9c9b85ea5}{enable\+\_\+if\+\_\+tuple}} = std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacesfinae_1_1details_ac9fb33cb8147525ff12454b322dbe872}{details\+::is\+\_\+tuple\+\_\+v}}$<$ T $>$, int $>$
+\begin{DoxyCompactList}\small\item\em template alias is used to check if an input variable is a std\+::tuple. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714}{enable\+\_\+if\+\_\+integral}}$<$ T $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\+\_\+ip}} (T \&\&ip, std\+::ostream \&out=std\+::cout, const char \texorpdfstring{$\ast$}{*}sep=\"{}.\"{})
+\begin{DoxyCompactList}\small\item\em for integral {\ttfamily ip} output to {\ttfamily out} ( {\ttfamily sep} )-\/separated byte-\/by-\/byte repr of integral type {\ttfamily ip}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T , std\+::size\+\_\+t... Is$>$ }\\void \mbox{\hyperlink{namespacesfinae_ac0aeeab7f960af4b5f99d0f2f951b545}{\+\_\+print\+\_\+tuple\+\_\+impl}} (T \&\&t, std\+::index\+\_\+sequence$<$ Is... $>$, std\+::ostream \&out, const char \texorpdfstring{$\ast$}{*}sep)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespacesfinae_acf50b3be80d7ffd26721950e381da14e}\label{namespacesfinae_acf50b3be80d7ffd26721950e381da14e} 
+\index{sfinae@{sfinae}!enable\_if\_container@{enable\_if\_container}}
+\index{enable\_if\_container@{enable\_if\_container}!sfinae@{sfinae}}
+\doxysubsubsection{\texorpdfstring{enable\_if\_container}{enable\_if\_container}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespacesfinae_acf50b3be80d7ffd26721950e381da14e}{sfinae\+::enable\+\_\+if\+\_\+container}} = typedef std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{details\+::is\+\_\+string}}$<$T$>$ \&\& \mbox{\hyperlink{structsfinae_1_1details_1_1is__container}{details\+::is\+\_\+container}}$<$T$>$\+::value, int$>$}
+
+
+
+template alias is used to check if an input variable is a container but not string-\/like type. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Input variable to be checked. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true If variable is a container type. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{traits_8hpp_source_l00094}{94}} of file \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}}.
+
+\Hypertarget{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714}\label{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714} 
+\index{sfinae@{sfinae}!enable\_if\_integral@{enable\_if\_integral}}
+\index{enable\_if\_integral@{enable\_if\_integral}!sfinae@{sfinae}}
+\doxysubsubsection{\texorpdfstring{enable\_if\_integral}{enable\_if\_integral}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714}{sfinae\+::enable\+\_\+if\+\_\+integral}} = typedef std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+integral\+\_\+v$<$T$>$, int$>$}
+
+
+
+template alias is used to check if an input variable is an integral type. 
+
+\href{https://en.cppreference.com/w/cpp/types/is_integral}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/types/is\+\_\+integral}} if T is the type bool, char, char8\+\_\+t (since C++20), char16\+\_\+t, char32\+\_\+t, wchar\+\_\+t, short, int, long, long long, or any implementation-\/defined extended integer types, including any signed, unsigned, and cv-\/qualified variants. Otherwise, value is equal to false. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Input variable to be checked. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true If variable is an integral type. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{traits_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}}.
+
+\Hypertarget{namespacesfinae_aedc4aa60f85f0fc4a2d372815e18a268}\label{namespacesfinae_aedc4aa60f85f0fc4a2d372815e18a268} 
+\index{sfinae@{sfinae}!enable\_if\_string@{enable\_if\_string}}
+\index{enable\_if\_string@{enable\_if\_string}!sfinae@{sfinae}}
+\doxysubsubsection{\texorpdfstring{enable\_if\_string}{enable\_if\_string}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespacesfinae_aedc4aa60f85f0fc4a2d372815e18a268}{sfinae\+::enable\+\_\+if\+\_\+string}} = typedef std\+::enable\+\_\+if\+\_\+t$<$\mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{details\+::is\+\_\+string}}$<$T$>$, int$>$}
+
+
+
+template alias is used to check if an input variable is a string-\/like type. 
+
+string-\/like type\+: const char \texorpdfstring{$\ast$}{*}, const char\mbox{[}\mbox{]}, std\+::string, std\+::string\+\_\+view, ... 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Input variable to be checked. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true If variable is a string-\/like type. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{traits_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}}.
+
+\Hypertarget{namespacesfinae_ae4658c369e0b7039d6eebaa9c9b85ea5}\label{namespacesfinae_ae4658c369e0b7039d6eebaa9c9b85ea5} 
+\index{sfinae@{sfinae}!enable\_if\_tuple@{enable\_if\_tuple}}
+\index{enable\_if\_tuple@{enable\_if\_tuple}!sfinae@{sfinae}}
+\doxysubsubsection{\texorpdfstring{enable\_if\_tuple}{enable\_if\_tuple}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespacesfinae_ae4658c369e0b7039d6eebaa9c9b85ea5}{sfinae\+::enable\+\_\+if\+\_\+tuple}} = typedef std\+::enable\+\_\+if\+\_\+t$<$\mbox{\hyperlink{namespacesfinae_1_1details_ac9fb33cb8147525ff12454b322dbe872}{details\+::is\+\_\+tuple\+\_\+v}}$<$T$>$, int$>$}
+
+
+
+template alias is used to check if an input variable is a std\+::tuple. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Input variable to be checked. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+true If variable is a std\+::tuple. 
+
+false Otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{traits_8hpp_source_l00114}{114}} of file \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacesfinae_ac0aeeab7f960af4b5f99d0f2f951b545}\label{namespacesfinae_ac0aeeab7f960af4b5f99d0f2f951b545} 
+\index{sfinae@{sfinae}!\_print\_tuple\_impl@{\_print\_tuple\_impl}}
+\index{\_print\_tuple\_impl@{\_print\_tuple\_impl}!sfinae@{sfinae}}
+\doxysubsubsection{\texorpdfstring{\_print\_tuple\_impl()}{\_print\_tuple\_impl()}}
+{\footnotesize\ttfamily template$<$class T , std\+::size\+\_\+t... Is$>$ \\
+void sfinae\+::\+\_\+print\+\_\+tuple\+\_\+impl (\begin{DoxyParamCaption}\item[{T \&\&}]{t,  }\item[{std\+::index\+\_\+sequence$<$ Is... $>$}]{,  }\item[{std\+::ostream \&}]{out,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{sep }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{sfinae_2print__ip_8hpp_source_l00088}{88}} of file \mbox{\hyperlink{sfinae_2print__ip_8hpp_source}{print\+\_\+ip.\+hpp}}.
+
+\Hypertarget{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}\label{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0} 
+\index{sfinae@{sfinae}!print\_ip@{print\_ip}}
+\index{print\_ip@{print\_ip}!sfinae@{sfinae}}
+\doxysubsubsection{\texorpdfstring{print\_ip()}{print\_ip()}}
+{\footnotesize\ttfamily template$<$typename T , \mbox{\hyperlink{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714}{enable\+\_\+if\+\_\+integral}}$<$ T $>$  = 0$>$ \\
+void sfinae\+::print\+\_\+ip (\begin{DoxyParamCaption}\item[{T \&\&}]{ip,  }\item[{std\+::ostream \&}]{out = {\ttfamily std\+:\+:cout},  }\item[{const char \texorpdfstring{$\ast$}{*}}]{sep = {\ttfamily \"{}.\"{}} }\end{DoxyParamCaption})}
+
+
+
+for integral {\ttfamily ip} output to {\ttfamily out} ( {\ttfamily sep} )-\/separated byte-\/by-\/byte repr of integral type {\ttfamily ip}. 
+
+for string {\ttfamily ip} output to {\ttfamily out} {\ttfamily ip} element by element with {\ttfamily sep} -\/ separeted.
+
+for container {\ttfamily ip} output to {\ttfamily out} {\ttfamily ip} element by element with {\ttfamily sep} -\/ separated.
+
+for string {\ttfamily ip} output to {\ttfamily out} {\ttfamily ip} as is.
+
+If address is integer than it\textquotesingle{}s output byte-\/by-\/byte, unsigned, high byte first, followed by {\ttfamily .} as a separator. \begin{DoxyParagraph}{Examples\+:}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(\ int8\_t\{-\/1\}\ );\ \textcolor{comment}{//\ 255}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(\ int16\_t\{0\}\ );\ \textcolor{comment}{//\ 0.0}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(\ int32\_t\{2130706433\}\ );\ \textcolor{comment}{//\ 127.0.0.1}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(\ int64\_t\{8875824491850138409\}\ );\textcolor{comment}{//\ 123.45.67.89.101.112.131.41}}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & integral\\
+\hline
+\end{DoxyTemplParams}
+If address is string than it\textquotesingle{}s output as is. \begin{DoxyParagraph}{Examples\+:}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(\ std::string\{“Hello,\ World!”\}\ );\ \textcolor{comment}{//\ Hello,\ World!}}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & string\\
+\hline
+\end{DoxyTemplParams}
+If address is ({\ttfamily std\+::list} or {\ttfamily std\+::vector}) container than it\textquotesingle{}s output element by element and separated by {\ttfamily .} Elements are displayed as are. \begin{DoxyParagraph}{Examples\+:}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(\ std::vector<int>\{100,\ 200,\ 300,\ 400\}\ );\ \textcolor{comment}{//\ 100.200.300.400}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(\ std::list<shot>\{400,\ 300,\ 200,\ 100\}\ );\ \textcolor{comment}{//\ 400.300.200.100}}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & container (list, vector, ...)\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyItemize}
+\item If address is tuple цшер all member types are the same than it\textquotesingle{}s output member by member and separated by {\ttfamily .} Members are displayed as are. If tuple member types are not the same than error should be output at compile time. \begin{DoxyParagraph}{Examples\+:}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(\ std::make\_tuple(123,\ 456,\ 789,\ 0)\ );\ \textcolor{comment}{//\ 123.456.789.0}}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & tuple \\
+\hline
+\end{DoxyTemplParams}
+
+\end{DoxyItemize}
+\begin{DoxyParams}{Parameters}
+{\em ip} & integral  \\
+\hline
+{\em out} & output stream  \\
+\hline
+{\em sep} & separator \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{sfinae_2print__ip_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{sfinae_2print__ip_8hpp_source}{print\+\_\+ip.\+hpp}}.
+

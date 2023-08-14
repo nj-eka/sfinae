@@ -1,0 +1,44 @@
+\doxysection{src/sfinae/traits.hpp File Reference}
+\hypertarget{traits_8hpp}{}\label{traits_8hpp}\index{src/sfinae/traits.hpp@{src/sfinae/traits.hpp}}
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string\+\_\+view$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsfinae_1_1details_1_1is__container}{sfinae\+::details\+::is\+\_\+container$<$ T, class $>$}}
+\item 
+struct \mbox{\hyperlink{structsfinae_1_1details_1_1is__container_3_01T_00_01std_1_1void__t_3_01typename_01T_1_1iterator_01_4_01_4}{sfinae\+::details\+::is\+\_\+container$<$ T, std\+::void\+\_\+t$<$ typename T\+::iterator $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple}{sfinae\+::details\+::is\+\_\+tuple$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple_3_01std_1_1tuple_3_01U_8_8_8_01_4_01_4}{sfinae\+::details\+::is\+\_\+tuple$<$ std\+::tuple$<$ U... $>$ $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesfinae}{sfinae}}
+\item 
+namespace \mbox{\hyperlink{namespacesfinae_1_1details}{sfinae\+::details}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714}{sfinae\+::enable\+\_\+if\+\_\+integral}} = std\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+integral\+\_\+v$<$ T $>$, int $>$
+\begin{DoxyCompactList}\small\item\em template alias is used to check if an input variable is an integral type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacesfinae_aedc4aa60f85f0fc4a2d372815e18a268}{sfinae\+::enable\+\_\+if\+\_\+string}} = std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{details\+::is\+\_\+string}}$<$ T $>$, int $>$
+\begin{DoxyCompactList}\small\item\em template alias is used to check if an input variable is a string-\/like type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacesfinae_acf50b3be80d7ffd26721950e381da14e}{sfinae\+::enable\+\_\+if\+\_\+container}} = std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{details\+::is\+\_\+string}}$<$ T $>$ \&\&\mbox{\hyperlink{structsfinae_1_1details_1_1is__container}{details\+::is\+\_\+container}}$<$ T $>$\+::value, int $>$
+\begin{DoxyCompactList}\small\item\em template alias is used to check if an input variable is a container but not string-\/like type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacesfinae_ae4658c369e0b7039d6eebaa9c9b85ea5}{sfinae\+::enable\+\_\+if\+\_\+tuple}} = std\+::enable\+\_\+if\+\_\+t$<$ \mbox{\hyperlink{namespacesfinae_1_1details_ac9fb33cb8147525ff12454b322dbe872}{details\+::is\+\_\+tuple\+\_\+v}}$<$ T $>$, int $>$
+\begin{DoxyCompactList}\small\item\em template alias is used to check if an input variable is a std\+::tuple. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename maybe\+\_\+string\+\_\+t $>$ }\\constexpr bool \mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{sfinae\+::details\+::is\+\_\+string}} = std\+::is\+\_\+convertible\+\_\+v$<$maybe\+\_\+string\+\_\+t, std\+::string$>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespacesfinae_1_1details_ac9fb33cb8147525ff12454b322dbe872}{sfinae\+::details\+::is\+\_\+tuple\+\_\+v}} = \mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple}{is\+\_\+tuple}}$<$T$>$\+::value
+\end{DoxyCompactItemize}

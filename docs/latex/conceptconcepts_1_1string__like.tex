@@ -1,0 +1,21 @@
+\doxysection{concepts\+::string\+\_\+like Concept Reference}
+\hypertarget{conceptconcepts_1_1string__like}{}\label{conceptconcepts_1_1string__like}\index{concepts::string\_like@{concepts::string\_like}}
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptconcepts_1_1string__like}{concepts::string\_like}}\ =\ \ std::same\_as<T,\ std::string\_view>\ ||\ std::convertible\_to<T,\ std::string>\ ||}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{conceptconcepts_1_1__IsAnyOf}{\_IsAnyOf<std::remove\_cvref\_t<std::remove\_pointer\_t<std::decay\_t<T>}}>>,\ char,\ \textcolor{keywordtype}{wchar\_t}>}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{concepts_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{concepts_8hpp_source}{concepts.\+hpp}}.
+

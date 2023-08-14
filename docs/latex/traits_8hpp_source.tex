@@ -1,0 +1,88 @@
+\doxysection{traits.\+hpp}
+\hypertarget{traits_8hpp_source}{}\label{traits_8hpp_source}\index{src/sfinae/traits.hpp@{src/sfinae/traits.hpp}}
+\mbox{\hyperlink{traits_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <string\_view>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00010}00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesfinae}{sfinae}}\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00024}00024\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00025}\mbox{\hyperlink{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714}{00025}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714}{enable\_if\_integral}}\ =}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00026}00026\ \ \ \ \ std::enable\_if\_t<std::is\_integral\_v<T>,\ \textcolor{keywordtype}{int}>;\ \textcolor{comment}{//\ or\ std::numeric\_limits<T>::is\_integer}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00029}00029\ \textcolor{comment}{//\ //\ v0}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00030}00030\ \textcolor{comment}{//\ template<typename\ ItemType>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00031}00031\ \textcolor{comment}{//\ auto\ func(ItemType\ \&i)\ -\/>\ decltype(std::to\_string(i),\ void())}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00032}00032\ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00033}00033\ \textcolor{comment}{//\ \ \ \ \ \ std::cout\ <<\ std::to\_string(i);}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00034}00034\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00036}00036\ \textcolor{comment}{//\ //\ v1}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00037}00037\ \textcolor{comment}{//\ template\ <typename\ T>\ using\ enable\_if\_string\ =\ std::enable\_if\_t<std::is\_same\_v<std::decay\_t<T>,}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00038}00038\ \textcolor{comment}{//\ std::string>,\ int>;}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00040}00040\ \textcolor{comment}{//\ v2\ based\ on\ https://habr.com/ru/articles/645321/}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00041}\mbox{\hyperlink{namespacesfinae_1_1details}{00041}}\ \textcolor{keyword}{namespace\ }details\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00043}00043\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ maybe\_\textcolor{keywordtype}{string}\_t>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00044}\mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{00044}}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{is\_string}}\ =\ std::is\_convertible\_v<maybe\_string\_t,\ std::string>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00046}00046\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00047}00047\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_string<std::string\_view>\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ 'cause\ is\ not\ implicitly\ convertible\ to}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00049}00049\ \}\ \textcolor{comment}{//\ namespace\ details}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00059}\mbox{\hyperlink{namespacesfinae_aedc4aa60f85f0fc4a2d372815e18a268}{00059}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacesfinae_aedc4aa60f85f0fc4a2d372815e18a268}{enable\_if\_string}}\ =\ std::enable\_if\_t<details::is\_string<T>,\ \textcolor{keywordtype}{int}>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00063}00063\ \textcolor{comment}{//\ //\ v0}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00064}00064\ \textcolor{comment}{//\ vector\ ||\ list}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00065}00065\ \textcolor{comment}{//\ template\ <typename\ T>\ struct\ is\_vector\_or\_list\ :\ std::false\_type\ \{\};}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00066}00066\ \textcolor{comment}{//\ template\ <typename\ T>\ struct\ is\_vector\_or\_list<std::vector<T>>\ :\ std::true\_type\ \{\};}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00067}00067\ \textcolor{comment}{//\ template\ <typename\ T>\ struct\ is\_vector\_or\_list<std::list<T>>\ :\ std::true\_type\ \{\};}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00068}00068\ \textcolor{comment}{//\ template\ <typename\ T>\ inline\ constexpr\ bool\ is\_vector\_or\_list\_v\ =\ is\_vector\_or\_list<T>::value;}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00069}00069\ \textcolor{comment}{//\ template\ <typename\ T>\ using\ enable\_if\_vector\_or\_list\ =\ std::enable\_if\_t<is\_vector\_or\_list\_v<T>,\ int>;}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00070}00070\ \textcolor{comment}{//\ +\ for\ std::forward\_list,\ std::array,\ ...}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00072}00072\ \textcolor{comment}{//\ v1\ Container\ is\ iterable\ (input)\ but\ not\ string\ like\ type}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00073}00073\ \textcolor{keyword}{namespace\ }details\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00075}00075\ \textcolor{comment}{//\ template\ <typename\ T,\ typename\ =\ void>\ struct\ is\_input\_iterator\ :\ std::false\_type\ \{\};}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00076}00076\ \textcolor{comment}{//\ template\ <typename\ T>}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00077}00077\ \textcolor{comment}{//\ struct\ is\_input\_iterator<T,}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00078}00078\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::void\_t<decltype(++std::declval<T\ \&>()),\ //\ incrementable,}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00079}00079\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ decltype(*std::declval<T\ \&>()),\ \ //\ dereferencable,}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00080}00080\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ decltype(std::declval<T\ \&>()\ ==\ std::declval<T\ \&>())>>\ //\ comparable}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00081}00081\ \textcolor{comment}{//\ \ \ \ \ :\ std::true\_type\ \{\};}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00082}\mbox{\hyperlink{structsfinae_1_1details_1_1is__container}{00082}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{class}\ =\ \textcolor{keywordtype}{void}>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsfinae_1_1details_1_1is__container}{is\_container}}\ :\ std::false\_type\ \{\};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00083}\mbox{\hyperlink{structsfinae_1_1details_1_1is__container_3_01T_00_01std_1_1void__t_3_01typename_01T_1_1iterator_01_4_01_4}{00083}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsfinae_1_1details_1_1is__container}{is\_container}}<T,\ std::void\_t<typename\ T::iterator>>\ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00085}00085\ \}\ \textcolor{comment}{//\ namespace\ details}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00093}00093\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00094}\mbox{\hyperlink{namespacesfinae_acf50b3be80d7ffd26721950e381da14e}{00094}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacesfinae_acf50b3be80d7ffd26721950e381da14e}{enable\_if\_container}}\ =}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00095}00095\ \ \ \ \ std::enable\_if\_t<!details::is\_string<T>\ \&\&\ \mbox{\hyperlink{structsfinae_1_1details_1_1is__container}{details::is\_container<T>::value}},\ \textcolor{keywordtype}{int}>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00098}00098\ \textcolor{keyword}{namespace\ }details\ \{}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00100}\mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple}{00100}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple}{is\_tuple}}\ :\ std::false\_type\ \{\};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00102}\mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple_3_01std_1_1tuple_3_01U_8_8_8_01_4_01_4}{00102}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ U>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple}{is\_tuple}}<std::tuple<U...>>\ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00104}\mbox{\hyperlink{namespacesfinae_1_1details_ac9fb33cb8147525ff12454b322dbe872}{00104}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacesfinae_1_1details_ac9fb33cb8147525ff12454b322dbe872}{is\_tuple\_v}}\ =\ \mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple}{is\_tuple<T>::value}};}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00106}00106\ \}\ \textcolor{comment}{//\ namespace\ details}}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00114}\mbox{\hyperlink{namespacesfinae_ae4658c369e0b7039d6eebaa9c9b85ea5}{00114}}\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacesfinae_ae4658c369e0b7039d6eebaa9c9b85ea5}{enable\_if\_tuple}}\ =\ std::enable\_if\_t<details::is\_tuple\_v<T>,\ \textcolor{keywordtype}{int}>;}
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{traits_8hpp_source_l00116}00116\ \}\ \textcolor{comment}{//\ namespace\ sfinae}}
+
+\end{DoxyCode}

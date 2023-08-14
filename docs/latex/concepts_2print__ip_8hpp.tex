@@ -1,0 +1,21 @@
+\doxysection{src/concepts/print\+\_\+ip.hpp File Reference}
+\hypertarget{concepts_2print__ip_8hpp}{}\label{concepts_2print__ip_8hpp}\index{src/concepts/print\_ip.hpp@{src/concepts/print\_ip.hpp}}
+{\ttfamily \#include $<$concepts$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include \"{}concepts.\+hpp\"{}}\newline
+{\ttfamily \#include \"{}utils/print\+\_\+helpers.\+hpp\"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceconcepts}{concepts}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$std\+::integral T$>$ }\\void \mbox{\hyperlink{namespaceconcepts_a56c2718789a87f9375d6ad03541c60df}{concepts\+::print\+\_\+ip}} (T \&\&ip, std\+::ostream \&out=std\+::cout, const char \texorpdfstring{$\ast$}{*}sep=\"{}.\"{})
+\item 
+{\footnotesize template$<$tuple\+\_\+like T, std\+::size\+\_\+t... Is$>$ }\\void \mbox{\hyperlink{namespaceconcepts_a9ba025c220169236fc5c4b033b3304c7}{concepts\+::\+\_\+print\+\_\+tuple\+\_\+impl}} (T \&\&t, std\+::index\+\_\+sequence$<$ Is... $>$, std\+::ostream \&out, const char \texorpdfstring{$\ast$}{*}sep)
+\end{DoxyCompactItemize}

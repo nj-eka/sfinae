@@ -1,0 +1,23 @@
+\doxysection{concepts\+::has\+\_\+tuple\+\_\+element Concept Reference}
+\hypertarget{conceptconcepts_1_1has__tuple__element}{}\label{conceptconcepts_1_1has__tuple__element}\index{concepts::has\_tuple\_element@{concepts::has\_tuple\_element}}
+
+
+{\ttfamily \#include $<$concepts.\+hpp$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptconcepts_1_1has__tuple__element}{concepts::has\_tuple\_element}}\ =\ \ \textcolor{keyword}{requires}(T\ t)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{typename}\ std::tuple\_element\_t<N,\ std::remove\_const\_t<T>>;}
+\DoxyCodeLine{\ \ \{\ get<N>(t)\ \}\ -\/>\ std::convertible\_to<const\ std::tuple\_element\_t<N,\ T>\ \&>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{concepts_8hpp_source_l00031}{31}} of file \mbox{\hyperlink{concepts_8hpp_source}{concepts.\+hpp}}.
+

@@ -1,0 +1,45 @@
+\doxysection{sfinae\+::details Namespace Reference}
+\hypertarget{namespacesfinae_1_1details}{}\label{namespacesfinae_1_1details}\index{sfinae::details@{sfinae::details}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsfinae_1_1details_1_1is__container}{is\+\_\+container}}
+\item 
+struct \mbox{\hyperlink{structsfinae_1_1details_1_1is__container_3_01T_00_01std_1_1void__t_3_01typename_01T_1_1iterator_01_4_01_4}{is\+\_\+container$<$ T, std\+::void\+\_\+t$<$ typename T\+::iterator $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple}{is\+\_\+tuple}}
+\item 
+struct \mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple_3_01std_1_1tuple_3_01U_8_8_8_01_4_01_4}{is\+\_\+tuple$<$ std\+::tuple$<$ U... $>$ $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename maybe\+\_\+string\+\_\+t $>$ }\\constexpr bool \mbox{\hyperlink{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}{is\+\_\+string}} = std\+::is\+\_\+convertible\+\_\+v$<$maybe\+\_\+string\+\_\+t, std\+::string$>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespacesfinae_1_1details_ac9fb33cb8147525ff12454b322dbe872}{is\+\_\+tuple\+\_\+v}} = \mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple}{is\+\_\+tuple}}$<$T$>$\+::value
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f}\label{namespacesfinae_1_1details_a3f4c1bfcec50669eca8645d11791d44f} 
+\index{sfinae::details@{sfinae::details}!is\_string@{is\_string}}
+\index{is\_string@{is\_string}!sfinae::details@{sfinae::details}}
+\doxysubsubsection{\texorpdfstring{is\_string}{is\_string}}
+{\footnotesize\ttfamily template$<$typename maybe\+\_\+string\+\_\+t $>$ \\
+constexpr bool sfinae\+::details\+::is\+\_\+string = std\+::is\+\_\+convertible\+\_\+v$<$maybe\+\_\+string\+\_\+t, std\+::string$>$\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{traits_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}}.
+
+\Hypertarget{namespacesfinae_1_1details_ac9fb33cb8147525ff12454b322dbe872}\label{namespacesfinae_1_1details_ac9fb33cb8147525ff12454b322dbe872} 
+\index{sfinae::details@{sfinae::details}!is\_tuple\_v@{is\_tuple\_v}}
+\index{is\_tuple\_v@{is\_tuple\_v}!sfinae::details@{sfinae::details}}
+\doxysubsubsection{\texorpdfstring{is\_tuple\_v}{is\_tuple\_v}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr bool sfinae\+::details\+::is\+\_\+tuple\+\_\+v = \mbox{\hyperlink{structsfinae_1_1details_1_1is__tuple}{is\+\_\+tuple}}$<$T$>$\+::value\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{traits_8hpp_source_l00104}{104}} of file \mbox{\hyperlink{traits_8hpp_source}{traits.\+hpp}}.
+

@@ -1,0 +1,56 @@
+\doxysection{concepts Namespace Reference}
+\hypertarget{namespaceconcepts}{}\label{namespaceconcepts}\index{concepts@{concepts}}
+\doxysubsubsection*{Concepts}
+\begin{DoxyCompactItemize}
+\item 
+concept \mbox{\hyperlink{conceptconcepts_1_1__IsAnyOf}{\+\_\+\+Is\+Any\+Of}}
+\item 
+concept \mbox{\hyperlink{conceptconcepts_1_1string__like}{string\+\_\+like}}
+\item 
+concept \mbox{\hyperlink{conceptconcepts_1_1container__like}{container\+\_\+like}}
+\item 
+concept \mbox{\hyperlink{conceptconcepts_1_1has__tuple__element}{has\+\_\+tuple\+\_\+element}}
+\item 
+concept \mbox{\hyperlink{conceptconcepts_1_1tuple__like}{tuple\+\_\+like}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$std\+::integral T$>$ }\\void \mbox{\hyperlink{namespaceconcepts_a56c2718789a87f9375d6ad03541c60df}{print\+\_\+ip}} (T \&\&ip, std\+::ostream \&out=std\+::cout, const char \texorpdfstring{$\ast$}{*}sep=\"{}.\"{})
+\item 
+{\footnotesize template$<$tuple\+\_\+like T, std\+::size\+\_\+t... Is$>$ }\\void \mbox{\hyperlink{namespaceconcepts_a9ba025c220169236fc5c4b033b3304c7}{\+\_\+print\+\_\+tuple\+\_\+impl}} (T \&\&t, std\+::index\+\_\+sequence$<$ Is... $>$, std\+::ostream \&out, const char \texorpdfstring{$\ast$}{*}sep)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceconcepts_a9ba025c220169236fc5c4b033b3304c7}\label{namespaceconcepts_a9ba025c220169236fc5c4b033b3304c7} 
+\index{concepts@{concepts}!\_print\_tuple\_impl@{\_print\_tuple\_impl}}
+\index{\_print\_tuple\_impl@{\_print\_tuple\_impl}!concepts@{concepts}}
+\doxysubsubsection{\texorpdfstring{\_print\_tuple\_impl()}{\_print\_tuple\_impl()}}
+{\footnotesize\ttfamily template$<$tuple\+\_\+like T, std\+::size\+\_\+t... Is$>$ \\
+void concepts\+::\+\_\+print\+\_\+tuple\+\_\+impl (\begin{DoxyParamCaption}\item[{T \&\&}]{t,  }\item[{std\+::index\+\_\+sequence$<$ Is... $>$}]{,  }\item[{std\+::ostream \&}]{out,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{sep }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{concepts_2print__ip_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{concepts_2print__ip_8hpp_source}{print\+\_\+ip.\+hpp}}.
+
+\Hypertarget{namespaceconcepts_a56c2718789a87f9375d6ad03541c60df}\label{namespaceconcepts_a56c2718789a87f9375d6ad03541c60df} 
+\index{concepts@{concepts}!print\_ip@{print\_ip}}
+\index{print\_ip@{print\_ip}!concepts@{concepts}}
+\doxysubsubsection{\texorpdfstring{print\_ip()}{print\_ip()}}
+{\footnotesize\ttfamily template$<$std\+::integral T$>$ \\
+void concepts\+::print\+\_\+ip (\begin{DoxyParamCaption}\item[{T \&\&}]{ip,  }\item[{std\+::ostream \&}]{out = {\ttfamily std\+:\+:cout},  }\item[{const char \texorpdfstring{$\ast$}{*}}]{sep = {\ttfamily \"{}.\"{}} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip} & integral  \\
+\hline
+{\em out} & output stream  \\
+\hline
+{\em sep} & separator \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{concepts_2print__ip_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{concepts_2print__ip_8hpp_source}{print\+\_\+ip.\+hpp}}.
+

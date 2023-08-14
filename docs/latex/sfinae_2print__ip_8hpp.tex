@@ -1,0 +1,20 @@
+\doxysection{src/sfinae/print\+\_\+ip.hpp File Reference}
+\hypertarget{sfinae_2print__ip_8hpp}{}\label{sfinae_2print__ip_8hpp}\index{src/sfinae/print\_ip.hpp@{src/sfinae/print\_ip.hpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include \"{}traits.\+hpp\"{}}\newline
+{\ttfamily \#include \"{}utils/print\+\_\+helpers.\+hpp\"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesfinae}{sfinae}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{namespacesfinae_a3d549f0c54b6fa2c817cb0b0e9b42714}{enable\+\_\+if\+\_\+integral}}$<$ T $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{sfinae\+::print\+\_\+ip}} (T \&\&ip, std\+::ostream \&out=std\+::cout, const char \texorpdfstring{$\ast$}{*}sep=\"{}.\"{})
+\begin{DoxyCompactList}\small\item\em for integral {\ttfamily ip} output to {\ttfamily out} ( {\ttfamily sep} )-\/separated byte-\/by-\/byte repr of integral type {\ttfamily ip}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T , std\+::size\+\_\+t... Is$>$ }\\void \mbox{\hyperlink{namespacesfinae_ac0aeeab7f960af4b5f99d0f2f951b545}{sfinae\+::\+\_\+print\+\_\+tuple\+\_\+impl}} (T \&\&t, std\+::index\+\_\+sequence$<$ Is... $>$, std\+::ostream \&out, const char \texorpdfstring{$\ast$}{*}sep)
+\end{DoxyCompactItemize}

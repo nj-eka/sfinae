@@ -1,0 +1,67 @@
+\doxysection{print\+\_\+ip.\+hpp}
+\hypertarget{sfinae_2print__ip_8hpp_source}{}\label{sfinae_2print__ip_8hpp_source}\index{src/sfinae/print\_ip.hpp@{src/sfinae/print\_ip.hpp}}
+\mbox{\hyperlink{sfinae_2print__ip_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \#include\ <typeinfo>}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{traits_8hpp}{traits.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{print__helpers_8hpp}{utils/print\_helpers.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00012}\mbox{\hyperlink{namespacesfinae}{00012}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesfinae}{sfinae}}\ \{}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00028}00028\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ enable\_if\_\textcolor{keywordtype}{int}egral<T>\ =\ 0>}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00029}\mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{00029}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(T\ \&\&ip\ ,\ std::ostream\ \&out\ \ =\ std::cout,}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[maybe\_unused]]\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sep\ \ =\ \textcolor{stringliteral}{"{}."{}})\ \{}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00031}00031\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ tsz\ =\ \textcolor{keyword}{sizeof}(T);}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00032}00032\ \ \ \textcolor{comment}{//\ todo:\ make\ compile\ time\ resolved\ ...\ without\ dot\ at\ the\ end}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00033}00033\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ tsz;\ i-\/-\/;)\ \{}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00034}00034\ \ \ \ \ out\ <<\ static\_cast<std::uint16\_t>(ip\ >>\ (i\ *\ std::numeric\_limits<unsigned\ char>::digits)\ \&}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<unsigned\ char>::max());}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (i)}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00037}00037\ \ \ \ \ \ \ out\ <<\ sep;}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00038}00038\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00039}00039\ \ \ \mbox{\hyperlink{print__helpers_8hpp_aa7ff2d3fa8cb913704f6d80b78b38f92}{PPF}}(out);}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00052}00052\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ enable\_if\_\textcolor{keywordtype}{string}<T>\ =\ 0>}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00053}00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(T\ \&\&ip\ ,\ std::ostream\ \&out\ \ =\ std::cout,}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[maybe\_unused]]\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sep\ \ =\ \textcolor{stringliteral}{"{}."{}})\ \{}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00055}00055\ \ \ out\ <<\ ip;}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00056}00056\ \ \ \mbox{\hyperlink{print__helpers_8hpp_aa7ff2d3fa8cb913704f6d80b78b38f92}{PPF}}(out);}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00071}00071\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ enable\_if\_container<T>\ =\ 0>}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00072}00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(T\ \&\&ip\ ,\ std::ostream\ \&out\ \ =\ std::cout,}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[maybe\_unused]]\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sep\ \ =\ \textcolor{stringliteral}{"{}."{}})\ \{}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00074}00074\ \ \ \textcolor{keyword}{auto}\ \&\&from\ =\ ip.begin();}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00075}00075\ \ \ \textcolor{keyword}{auto}\ \&\&to\ =\ ip.end();}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00076}00076\ \ \ \textcolor{keywordflow}{if}\ (from\ !=\ to)\ \{}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00077}00077\ \ \ \ \ out\ <<\ *from;}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&\&it\ =\ ++from;\ it\ !=\ to;\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00079}00079\ \ \ \ \ \ \ out\ <<\ sep\ <<\ *it;}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00081}00081\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00082}00082\ \ \ \mbox{\hyperlink{print__helpers_8hpp_aa7ff2d3fa8cb913704f6d80b78b38f92}{PPF}}(out);}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00087}00087\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class\ }T,\ std::size\_t...\ Is>}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00088}\mbox{\hyperlink{namespacesfinae_ac0aeeab7f960af4b5f99d0f2f951b545}{00088}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacesfinae_ac0aeeab7f960af4b5f99d0f2f951b545}{\_print\_tuple\_impl}}(T\ \&\&t,\ std::index\_sequence<Is...>,\ std::ostream\ \&out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sep)\ \{}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00089}00089\ \ \ ((out\ <<\ (Is\ ==\ 0\ ?\ \textcolor{stringliteral}{"{}"{}}\ :\ sep)\ <<\ std::get<Is>(t)),\ ...);}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00090}00090\ \}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00104}00104\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ enable\_if\_tuple<T>\ =\ 0>}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00105}00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacesfinae_a112a0277e9ea66a5d295af31f15ab9b0}{print\_ip}}(T\ \&\&ip\ ,\ std::ostream\ \&out\ =\ std::cout,\ [[maybe\_unused]]\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sep\ =\ \textcolor{stringliteral}{"{}."{}})\ \{}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00106}00106\ \ \ \mbox{\hyperlink{namespacesfinae_ac0aeeab7f960af4b5f99d0f2f951b545}{\_print\_tuple\_impl}}(std::forward<T>(ip),\ std::make\_index\_sequence<std::tuple\_size\_v<T>>\{\},\ out,\ sep);}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00107}00107\ \ \ \mbox{\hyperlink{print__helpers_8hpp_aa7ff2d3fa8cb913704f6d80b78b38f92}{PPF}}(out);}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00108}00108\ \}}
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{sfinae_2print__ip_8hpp_source_l00110}00110\ \}\ \textcolor{comment}{//\ namespace\ sfinae}}
+
+\end{DoxyCode}
